@@ -6,27 +6,32 @@
 // todo encapsulation
 // todo tests
 // todo chaining
-function YoutubeChannel(name) {
-  this.name = name;
-  this.subscribers = []
-}
 
-YoutubeChannel.prototype.subscribe = function (subscriber) {
-  this.subscribers.push(subscriber);
-}
+var YoutubeChannel = (function () {
 
-YoutubeChannel.prototype.unsubscribe = function (subscriber) {
-  this.subscribers = this.subscribers.filter((item) => item.id !== subscriber.id);
-}
+  function YoutubeChannel(name) {
+    this.name = name;
+    this.subscribers = []
+  }
 
-YoutubeChannel.prototype.reset = function () {
-  this.subscribers = [];
-}
+  YoutubeChannel.prototype.subscribe = function (subscriber) {
+    this.subscribers.push(subscriber);
+  }
 
-YoutubeChannel.prototype.publishNews = function (news) {
-  this.subscribers.forEach(user => user.readNews(news));
-}
+  YoutubeChannel.prototype.unsubscribe = function (subscriber) {
+    this.subscribers = this.subscribers.filter((item) => item.id !== subscriber.id);
+  }
 
+  YoutubeChannel.prototype.reset = function () {
+    this.subscribers = [];
+  }
+
+  YoutubeChannel.prototype.publishNews = function (news) {
+    this.subscribers.forEach(user => user.readNews(news));
+  }
+
+  return YoutubeChannel;
+})();
 
 // clients:
 var User1 = {
@@ -45,9 +50,11 @@ var User2 = {
   }
 }
 
-var channel = new YoutubeChannel('bo');
+var channel = new YoutubeChannel('My own youtube channel');
 
 channel.subscribe(User1);
 channel.subscribe(User2);
 
 channel.publishNews('We have 1m users!');
+
+
