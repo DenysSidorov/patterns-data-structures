@@ -40,7 +40,7 @@ var User1 = {
   id: 1,
   name: 'Denis',
   readNews: function (news) {
-    console.log(`${this.name} got fresh news: ${news}`);
+    return(`${this.name} got fresh news: ${news}`);
   }
 }
 
@@ -48,7 +48,7 @@ var User2 = {
   id: 2,
   name: 'Marry',
   readNews: function (news) {
-    console.log(`${this.name} got fresh news: ${news}`);
+    return(`${this.name} got fresh news: ${news}`);
   }
 }
 
