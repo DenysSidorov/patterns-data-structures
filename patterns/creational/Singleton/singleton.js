@@ -25,9 +25,10 @@ const Connection = (function () {
 
 })();
 
-
-// var bdConnection = new Connection('8080');
-// var bdConnection2 = new Connection('433');
-// console.log(bdConnection2.getPort());
-
 module.exports = Connection;
+
+
+/*
+*  - 2th type of Singleton - getInstance() method
+*  - 3th type of Singleton - get always instance which created with 'new Instance()' before
+* */
