@@ -2,6 +2,8 @@
  * 'Singleton' pattern allows you have only one instance of object in your application
  */
 
+/** Using 5/5*/
+
 var CRonaldo_Singleton = (function () {
 
   var instance;

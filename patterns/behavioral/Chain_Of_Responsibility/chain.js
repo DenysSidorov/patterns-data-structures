@@ -3,6 +3,8 @@
  * it can be used in long chain of calls
  */
 
+/** Using 3/5*/
+
 function CarSkeleton(name) {
   let _name = name;
   let _parts = [];

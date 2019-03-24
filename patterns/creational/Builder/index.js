@@ -3,6 +3,8 @@
  * Properties add new opportunities for main class
  */
 
+/** Using 1/5*/
+
 // class with additional properties
 class GreenColor{
   getColor(){
