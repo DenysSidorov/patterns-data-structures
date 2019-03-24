@@ -27,8 +27,8 @@
 
 
 
-function CarSkeleton() {
-  // let _name = name;
+function CarSkeleton(name) {
+  let _name = name;
   let _parts = [];
 
   addPart = function (part) {
@@ -48,8 +48,8 @@ function CarSkeleton() {
 module.exports = CarSkeleton;
 
 
-// var rover = new CarSkeleton('Rover');
-// //
-// rover.addPart('door').addPart('cover').addPart('chairs').getCount();
-// //
+var rover = new CarSkeleton('Rover');
+
+rover.addPart('door').addPart('cover').addPart('chairs').getCount();
+
 // console.log(rover.getCount());
