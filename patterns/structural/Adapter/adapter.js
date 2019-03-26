@@ -7,14 +7,28 @@
 
 /** Using 4/5*/
 
-
+// old working functionality
 function OldCar(name) {
-    this.name = name;
-    this.run = function () {
-      return `I'm old car - ${this.name}`;
-    }
+  this.name = name;
+  this.run = function () {
+    return `I'm old car - ${this.name}`;
+  }
 }
 
+// new functionality, but with another leverages
+function NewCar(name) {
+  this.name = name;
+  // another method for making car to move
+  this.fustRun = function () {
+    return `I'm new car - ${this.improveCar(this.name)}, brrrr`;
+  }
+  this.improveCar = function (name) {
+    // do some stuff
+    return name.toUpperCase();
+  }
+}
+
+// adapter for new functionality
 function AdapterNewCar(name) {
   this.car = new NewCar(name);
   this.run = function () {
@@ -22,18 +36,7 @@ function AdapterNewCar(name) {
   }
 }
 
-function NewCar(name) {
-    this.name = name;
-    // another method for making car to move
-    this.fustRun = function () {
-      return `I'm new car - ${this.improveCar(this.name)}, brrrr`;
-    }
-    this.improveCar = function (name) {
-      // do some stuff
-      return name.toUpperCase();
-    }
-}
-
+// user of cars
 (function userCar() {
   var car1 = new OldCar('Buick');
   console.log(car1.run());
@@ -42,4 +45,9 @@ function NewCar(name) {
   var car2 = new AdapterNewCar('Audi');
   console.log(car2.run());
 })()
+
+
+module.exports = {
+  OldCar, NewCar, AdapterNewCar
+}
 
