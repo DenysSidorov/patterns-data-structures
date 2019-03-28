@@ -3,6 +3,8 @@
  * next elements and create iteration on these items.
  */
 
+/** Using 5/5*/
+
 // main iterator class
 var Iterator = function (items) {
   this.index = 0;

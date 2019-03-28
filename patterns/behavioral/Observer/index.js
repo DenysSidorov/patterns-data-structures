@@ -3,6 +3,8 @@
  * subscribers
  */
 
+/** Using 5/5*/
+
 var Football_magazine = (function () {
 
   function Magazine() {

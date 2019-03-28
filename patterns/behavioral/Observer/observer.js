@@ -3,6 +3,8 @@
  * subscribers
  */
 
+/** Using 5/5*/
+
 // todo tests
 
 var YoutubeChannel = (function () {
