@@ -37,12 +37,13 @@ var iter = new Iterator(items);
 
 // using for loop
 for (var item = iter.first(); iter.hasNext(); item = iter.next()) {
-  console.log(item);
+  // console.log(item);
 }
-console.log("");
+// console.log("");
 
 // using Iterator's each method
 iter.each(function (item) {
-  console.log(item);
+  // console.log(item);
 });
 
+module.exports = Iterator;
