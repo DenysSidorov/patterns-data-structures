@@ -39,11 +39,11 @@ function AdapterNewCar(name) {
 // user of cars
 (function userCar() {
   var car1 = new OldCar('Buick');
-  console.log(car1.run());
+  // console.log(car1.run());
 
   // var car2 = new OldCar('Audi');
   var car2 = new AdapterNewCar('Audi');
-  console.log(car2.run());
+  // console.log(car2.run());
 })()
 
 
