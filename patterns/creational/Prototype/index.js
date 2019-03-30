@@ -2,6 +2,8 @@
  * 'Prototype' pattern allows you have class for cloning from prototype-class, and get new instances
 */
 
+/** Using 1/5*/
+
 // simple class with arguments in constructor
 function Bus(wheels, paleces, hight) {
     this.wheels = wheels || 14;
