@@ -53,6 +53,7 @@ var wheel = new Wheel('Michelin');
 
 var car = new Car(wheel, engine, petrol);
 
-car.run();
+// car.run();
 
+module.exports = {Car, Wheel, Engine, Petrol};
 
