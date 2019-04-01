@@ -3,6 +3,8 @@
  *  can be changed with very easy way.
  */
 
+/** Using 1/5*/
+
 // one abstraction with realisation, we can create another
 var FootballBootsNike = function () {
   this.run = function () { console.log('Run in football boots Nike'); }
