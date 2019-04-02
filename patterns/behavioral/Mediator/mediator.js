@@ -4,6 +4,8 @@
  * library uses it  approach. Additionally it disables relates between classes.
  */
 
+/** Using 3/5*/
+
 // mediator class
 class TransfersAssociation {
   constructor() {
@@ -70,3 +72,5 @@ transfersAssociation.register(leagueJapan);
 // we can send distinct messages, or messages for all
 leagueJapan.send("Hey world, we are selling good players!");
 leagueEngland.send("Hey, Spain! We can sell you our captain per 100 millions", leagueSpain);
+
+module.exports = {FootballLeague, TransfersAssociation};
