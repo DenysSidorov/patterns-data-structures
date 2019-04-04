@@ -1,8 +1,9 @@
 /**
- * Factory
- * Builder car
- * Car
- * */
+ * 'Builder' pattern allows you have main class, which uses another class with properties.
+ * Properties add new opportunities for main class
+ */
+
+/** Using 1/5*/
 
 // interface
 function Builder() {
