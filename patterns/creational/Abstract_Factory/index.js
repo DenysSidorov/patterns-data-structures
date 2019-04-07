@@ -4,6 +4,7 @@
  * help you to work with too many parents and children of one interface
  */
 
+/** Using 3/5*/
 
 // main interface
 function Player(){}
