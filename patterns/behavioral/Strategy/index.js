@@ -3,6 +3,8 @@
  * classes have the same behaviour, but different realisation
  */
 
+/** Using 3/5*/
+
 
 var FootballTeam = (function () {
 
