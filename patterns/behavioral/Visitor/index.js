@@ -3,6 +3,8 @@
  * itself for that visitor. Visitor cans to change client. Could be used in extensions
  */
 
+/** Using 1/5*/
+
 // client class
 var FootballStadium = function (name, freePlaces) {
   this.name = name;
