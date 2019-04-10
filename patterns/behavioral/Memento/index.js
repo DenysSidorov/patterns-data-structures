@@ -2,6 +2,8 @@
  * 'Memento' pattern allows you to save every step in one place, and then read all list.
  */
 
+/** Using 2/5*/
+
 // data
 function FifaGame(team, time, score){
   this.team = team;
@@ -52,5 +54,5 @@ game2.score = 100;
 console.log(game2);
 
 // but can to get old data
-console.log(footballSeasonList.get(2))  ;
+console.log(JSON.parse(footballSeasonList.get(2)))  ;
 

@@ -3,6 +3,8 @@
  *  one simple method.
  */
 
+/** Using 5/5*/
+
 // crete instance of facade-class and call main method
 var stadium = new BuildingCompany().buildStadium('Odessa-Arena', 100000);
 

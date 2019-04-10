@@ -1,5 +1,5 @@
 /**
- * 'Bridge' pattern allows you to have abstraction under main class. Both independently can be
+ * 'Bridge' pattern allows you to have abstraction under main class. Both independently
  *  can be changed with very easy way.
  */
 

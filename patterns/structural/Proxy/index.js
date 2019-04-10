@@ -1,6 +1,6 @@
 /**
  * 'Proxy' pattern allows you to have cash class which uses internal data, but if can't find actual
- * information - tries ask it in another sources. Often it is used by cash approaches.
+ * information - tries ask it in another sources. Often it is used by cache approaches.
  */
 
 // class-info with information
@@ -20,11 +20,11 @@ class FootballWikipedia {
   }
 }
 
-// Proxy-class that has cash and use class-info in case when it does't know actual info
+// Proxy-class that has cache and use class-info in case when it does't know actual info
 class NewFootballLibrary {
   constructor(wikipedia) {
     this.wikipedia = wikipedia; // source of information
-    this.stadiumsWiki = {} // main cash of class
+    this.stadiumsWiki = {} // main cache of class
   }
 
   // add new items in cash
@@ -56,4 +56,4 @@ newFootballLibrary.getInfoTeamStadium('Chelsea');
 newFootballLibrary.getInfoTeamStadium('Barcelona');
 
 // condition of cash
-console.log('Stadiums in library - ', newFootballLibrary.getWikiStadiumsCount());
+console.log('Stadiums in cache-library - ', newFootballLibrary.getWikiStadiumsCount());
