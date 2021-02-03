@@ -31,6 +31,41 @@ test('Array\'s pop method should return removed element', function () {
   expect(array.pop()).toBe(30);
 });
 
+test('Array\'s pop method shouldn\'t change index if array is empty', function () {
+  var array = new Array();
+  expect(array.pop()).toBe(undefined);
+  expect(array.length).toBe(0);
+});
+
+test('Array\'s insertAt method should insert new value', function () {
+  var array = new Array();
+  array.push(10);
+  array.push(20);
+  array.push(30);
+  array.insertAt(25, 2);
+  expect(array.data[2]).toBe(25);
+});
+
+test('Array\'s deleteAt method should remove value by index', function () {
+  var array = new Array();
+  array.push(10);
+  array.push(20);
+  array.push(30);
+  array.deleteAt(1);
+  expect(array.data[1]).toBe(30);
+  expect(array.length).toBe(2);
+});
+
+test('Array\'s getElementAtIndex method should return value by index', function () {
+  var array = new Array();
+  array.push(10);
+  array.push(20);
+  array.push(30);
+
+  expect(array.getElementAtIndex(1)).toBe(20);
+  expect(array.length).toBe(3);
+});
+
 // test('Chain pattern cans add car in internal array', function () {
 //   var car = new CarSkeleton('Honda');
 //   car.addPart('door').addPart('cover').addPart('chairs');
