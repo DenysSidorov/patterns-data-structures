@@ -1,6 +1,6 @@
 /**
- * 'Factory method' pattern allows you have abstract classes that make real instances
- * of implementations
+ *
+ * This pattern allows you to separate the implementation and creation of a particular object.
  */
 
 /** Using 4/5*/
