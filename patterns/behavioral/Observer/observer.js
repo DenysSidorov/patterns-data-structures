@@ -1,6 +1,6 @@
 /**
- * 'Observer / Publisher-Subscriber' pattern allows you have one publisher and many another
- * subscribers
+ * 'Observer / Publisher-Subscriber' pattern
+ * allows you have one publisher and many other subscribers
  */
 
 /** Using 5/5*/
@@ -42,7 +42,9 @@ var User1 = {
   id: 1,
   name: 'Denis',
   readNews: function (news) {
-    return(`${this.name} got fresh news: ${news}`);
+    var text = `${this.name} got fresh news: ${news}`;
+    console.log(text);
+    return text;
   }
 }
 
@@ -50,7 +52,9 @@ var User2 = {
   id: 2,
   name: 'Marry',
   readNews: function (news) {
-    return(`${this.name} got fresh news: ${news}`);
+    var text = `${this.name} got fresh news: ${news}`;
+    console.log(text);
+    return text;
   }
 }
 

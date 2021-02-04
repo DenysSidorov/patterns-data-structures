@@ -1,4 +1,10 @@
 /**
+ * It helps you control access to another object — called subject — by implementing the same interface.
+ *
+ *
+ * You can use it in many situations like Validation, Security, Caching, Lazy initialization, Debugging/Logging
+ * and Remote Object Access
+ *
  * 'Proxy' pattern allows you to have cash class which uses internal data, but if can't find actual
  * information - tries ask it in another sources. Often it is used by cache approaches.
  */
