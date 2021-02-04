@@ -19,8 +19,8 @@ class Stack {
   }
 
   pop() {
-    if (this.items.length == 0)
-      return 'Underflow';
+    if (this.items.length === 0)
+      return undefined;
     return this.items.pop();
   }
 
@@ -29,7 +29,7 @@ class Stack {
   }
 
   isEmpty() {
-    return this.items.length == 0;
+    return this.items.length === 0;
   }
 
   /** This method returns a string in which all the element of an stack is concatenated. */
@@ -37,6 +37,8 @@ class Stack {
     var str = '';
     for (var i = 0; i < this.items.length; i++)
       str += this.items[i] + ' ';
-    return str;
+    return str.trim();
   }
 }
+
+module.exports = Stack;
