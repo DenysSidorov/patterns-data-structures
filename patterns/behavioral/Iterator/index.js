@@ -41,7 +41,6 @@ var iter = new Iterator(items);
 for (var item = iter.first(); iter.hasNext(); item = iter.next()) {
   // console.log(item);
 }
-// console.log("");
 
 // using Iterator's each method
 iter.each(function (item) {

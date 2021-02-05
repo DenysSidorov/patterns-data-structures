@@ -2,7 +2,7 @@
  * 'Prototype' pattern allows you have class for cloning from prototype-class, and get new instances
  */
 
-/** Using 1/5*/
+/** Using 3/5*/
 
 function CarPrototype(car) {
   this.car = car;

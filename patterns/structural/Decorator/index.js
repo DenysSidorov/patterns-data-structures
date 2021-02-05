@@ -3,6 +3,8 @@
  * instead of using inheritance. Very common way in javascript.
  */
 
+/** Using 3/5*/
+
 // create player class that cans only play soccer
 var Player = (function () {
   function Player() {
@@ -11,9 +13,9 @@ var Player = (function () {
   // add action
   Player.prototype.play = function () {
     console.log('I can just play');
-  }
+  };
   return Player;
-}())
+}());
 
 
 // create new class-skill for running
@@ -21,10 +23,10 @@ function RunSkill(player) {
   var play = player.play;
   player.play = function () {
     // add old skills
-    play.apply(player, arguments)
+    play.apply(player, arguments);
     // add new skill
     console.log('I can run');
-  }
+  };
   return player;
 }
 
@@ -32,9 +34,9 @@ function RunSkill(player) {
 function HitSkill(player) {
   var play = player.play;
   player.play = function () {
-    play.apply(player, arguments)
+    play.apply(player, arguments);
     console.log('I can hit');
-  }
+  };
   return player;
 }
 
@@ -42,9 +44,9 @@ function HitSkill(player) {
 function DribblingSkill(player) {
   var play = player.play;
   player.play = function () {
-    play.apply(player, arguments)
+    play.apply(player, arguments);
     console.log('I can do dribbling');
-  }
+  };
   return player;
 }
 
