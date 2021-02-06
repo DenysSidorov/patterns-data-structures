@@ -12,15 +12,16 @@ function CarSkeleton(name) {
   addPart = function (part) {
     _parts.push(part);
     return this;
-  }
+  };
 
   getCount = function () {
     return _parts.length;
-  }
+  };
 
   return {
-    addPart, getCount
-  }
+    addPart,
+    getCount
+  };
 }
 
 module.exports = CarSkeleton;
