@@ -13,7 +13,7 @@ test('Set\'s values method should return values', function () {
   var set = new Set();
   set.add(1);
   set.add(2);
-  expect(set.values().toString()).toBe([1,2].toString());
+  expect(set.values().toString()).toBe([1, 2].toString());
 });
 
 test('Set\'s size method should return length', function () {
@@ -28,7 +28,7 @@ test('Set\'s remove method should rid elment', function () {
   set.add(1);
   set.add(2);
   set.add(3);
-  set.remove(2)
+  set.remove(2);
   expect(set.size()).toBe(2);
 });
 
@@ -40,7 +40,7 @@ test('Set\'s union method should show union with other Set', function () {
   set2.add(2);
   set2.add(3);
   expect(set1.union(set2).size()).toBe(3);
-  expect(set1.union(set2).values().toString()).toBe([1,2,3].toString());
+  expect(set1.union(set2).values().toString()).toBe([1, 2, 3].toString());
 });
 
 test('Set\'s intersection method should show intersection with other Set', function () {
