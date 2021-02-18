@@ -48,7 +48,7 @@ function Composite(name) {
 Composite.prototype = Object.create(Component.prototype);
 Composite.prototype.constructor = Composite;
 
-// Применение
+// User's code
 var kitchen = new Composite('Кухня');
 
 kitchen.add( new Leaf('Верхняя секция', 5200) );

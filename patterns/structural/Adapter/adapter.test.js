@@ -10,7 +10,7 @@ test('Adapter, test new functionality', function () {
   var name = 'BMW';
   var newCar = new NewCar(name);
   const spy = jest.spyOn(newCar, 'improveCar');
-  newCar.fustRun();
+  newCar.fastRun();
   expect(newCar.name).toBe(name);
   expect(spy).toHaveBeenCalled();
   expect(spy).toHaveBeenCalledWith(name);

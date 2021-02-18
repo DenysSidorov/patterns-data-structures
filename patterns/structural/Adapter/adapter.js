@@ -19,7 +19,7 @@ function OldCar(name) {
 function NewCar(name) {
   this.name = name;
   // another method for making car to move
-  this.fustRun = function () {
+  this.fastRun = function () {
     return `I'm new car - ${this.improveCar(this.name)}, brrrr`;
   }
   this.improveCar = function (name) {
@@ -32,7 +32,7 @@ function NewCar(name) {
 function AdapterNewCar(name) {
   this.car = new NewCar(name);
   this.run = function () {
-    return this.car.fustRun();
+    return this.car.fastRun();
   }
 }
 
