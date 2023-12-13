@@ -121,7 +121,7 @@ class LinkedList {
 
     // iterate over the list
     while (current != null) {
-      // comparing element with current element if found then remove it and return true
+      // comparing element with current element if found then remove it and return true.
       if (current.element === element) {
         if (prev == null) {
           this.head = current.next;
