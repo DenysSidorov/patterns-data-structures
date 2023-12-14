@@ -8,7 +8,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "jest --watch --colors"
+    "test": "jest --watch --colors",
+    "test-dir": "jest --watch --colors --rootDir=data-structures/linked-list"
   },
   "author": "",
   "license": "ISC"
