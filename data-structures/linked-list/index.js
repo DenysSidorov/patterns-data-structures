@@ -5,9 +5,9 @@
 // findFirst
 // getSize
 // clear - remove all values
-
 // toArray
 // fromArray
+
 // reverse
 // removeElement - remove nodes with value
 
@@ -25,20 +25,20 @@ class LinkedList {
     this.length = 0;
   }
 
-  clear(){
+  clear() {
     this.head = null;
     this.tail = null;
     this.length = 0;
   }
 
   append(value) {
-    if (!this.head && ! this.tail){
+    if (!this.head && !this.tail) {
       this._addToEmptyList(value);
     } else {
 
       let currentNode = this.head;
 
-      while(currentNode.next){
+      while (currentNode.next) {
         currentNode = currentNode.next;
       }
 
@@ -51,18 +51,18 @@ class LinkedList {
     return this;
   }
 
-  findFirst(value){
-    if (this.getSize() === 0){
+  findFirst(value) {
+    if (this.getSize() === 0) {
       return null;
     }
 
-    if (this.getSize() === 1){
+    if (this.getSize() === 1) {
       return this.head;
     }
 
     let currentNode = this.head;
-    while(currentNode.next){
-      if (currentNode.value === value){
+    while (currentNode.next) {
+      if (currentNode.value === value) {
         return currentNode;
       }
       currentNode = currentNode.next;
@@ -73,7 +73,7 @@ class LinkedList {
 
   prepend(value) {
 
-    if (!this.head && ! this.tail){
+    if (!this.head && !this.tail) {
       this._addToEmptyList(value);
     } else {
       let currentHead = this.head;
@@ -85,24 +85,24 @@ class LinkedList {
     return this;
   }
 
-  deleteTail(){
-    if (this.getSize() === 0){
-      return this
+  deleteTail() {
+    if (this.getSize() === 0) {
+      return this;
     }
 
-    if (this.getSize() === 1){
+    if (this.getSize() === 1) {
       this.head = null;
       this.tail = null;
       this.length--;
-      return this
+      return this;
     }
 
     // find the latest element
     let currentHead = this.head;
     let nextToCurrentHead = currentHead.next;
-    while(nextToCurrentHead.next) {
+    while (nextToCurrentHead.next) {
       currentHead = currentHead.next;
-      nextToCurrentHead = nextToCurrentHead.next
+      nextToCurrentHead = nextToCurrentHead.next;
     }
 
     // remove tail and update the previous link to the null
@@ -113,34 +113,27 @@ class LinkedList {
     return this;
   }
 
-  _addToEmptyList(value){
+  _addToEmptyList(value) {
     const newNode = new LinkedListNode(value);
     this.head = newNode;
     this.tail = newNode;
     this.length++;
   }
 
-  getSize(){
+  getSize() {
     return this.length;
   }
 
-
-  removeAll(value){
-    if (!this.head && ! this.tail) {
-      return 0;
-    }
-  }
-
-  deleteHead(){
-    if (this.getSize() === 0){
-      return this
+  deleteHead() {
+    if (this.getSize() === 0) {
+      return this;
     }
 
-    if (this.getSize() === 1){
+    if (this.getSize() === 1) {
       this.head = null;
       this.tail = null;
       this.length--;
-      return this
+      return this;
     }
 
     let nextToTheHead = this.head.next;
@@ -148,6 +141,36 @@ class LinkedList {
 
     this.length--;
     return this;
+  }
+
+  toArray() {
+    if (this.getSize() === 0) {
+      return [];
+    }
+
+    if (this.getSize() === 1) {
+      return [this.head.value];
+    }
+
+    const result = [];
+    let currentHead = this.head;
+    while (currentHead.next) {
+      result.push(currentHead.value);
+      currentHead = currentHead.next;
+    }
+
+    result.push(this.tail.value);
+    return result;
+  }
+
+  fromArray(values) {
+    if (!Array.isArray(values)) {
+      throw Error('argument of fromArray function is not the array');
+    }
+
+    values.forEach((element) => {
+      this.append(element);
+    });
   }
 }
 

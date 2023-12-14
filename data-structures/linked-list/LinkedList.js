@@ -103,7 +103,7 @@ class LinkedList {
       buf.push(current.value);
       current = current.next
     }
-    console.log('--- ', buf);
+    // console.log('--- ', buf);
   }
 
 }

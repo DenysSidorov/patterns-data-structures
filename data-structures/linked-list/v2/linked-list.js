@@ -174,6 +174,6 @@ class LinkedList {
       str += curr.element + ' ';
       curr = curr.next;
     }
-    console.log(str);
+    // console.log(str);
   }
 }

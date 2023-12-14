@@ -151,6 +151,36 @@ describe('prepend', () => {
     expect(list.head).toBe(null);
     expect(list.tail).toBe(null);
   });
+
+  test('convert empty linked list to array', function () {
+    const list = new LinkedList();
+    const array = list.toArray();
+    expect(array.length).toBe(0);
+  });
+
+  test('convert linked list with 1 value to array', function () {
+    const list = new LinkedList();
+    list.append(4455);
+    const array = list.toArray();
+    expect(array.length).toBe(1);
+    expect(array[0]).toBe(4455);
+  });
+
+  test('convert linked list with 3 values to array', function () {
+    const list = new LinkedList();
+    list.append(4455).append(453).append(145);
+    const array = list.toArray();
+    expect(array.length).toBe(3);
+    expect(array[0]).toBe(4455);
+  });
+
+  test('add values from the array to the linked list', function () {
+    const list = new LinkedList();
+    list.append(445).append(453).append(145);
+    list.fromArray([234, 2354]);
+    expect(list.length).toBe(5);
+    expect(list.getSize()).toBe(5);
+  });
 });
 
 
