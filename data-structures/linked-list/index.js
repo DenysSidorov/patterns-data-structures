@@ -56,12 +56,8 @@ class LinkedList {
       return null;
     }
 
-    if (this.getSize() === 1) {
-      return this.head;
-    }
-
     let currentNode = this.head;
-    while (currentNode.next) {
+    while (currentNode) {
       if (currentNode.value === value) {
         return currentNode;
       }
@@ -178,7 +174,7 @@ module.exports = {LinkedList, LinkedListNode};
 
 
 // const list = new LinkedList();
-// list.prepend(45);
+// list.append(45);
 // list.prepend(55);
 // list.prepend(55);
 // list.prepend(55);
