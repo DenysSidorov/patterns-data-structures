@@ -181,6 +181,27 @@ describe('prepend', () => {
     expect(list.length).toBe(5);
     expect(list.getSize()).toBe(5);
   });
+
+  test('get node by the index, started from zero', function () {
+    const list = new LinkedList();
+    list.append(111).append(222).append(333).append(444);
+    expect(list.length).toBe(4);
+    expect(list.getAt(2).value).toBe(333);
+  });
+
+  test('get node by the not existed index', function () {
+    const list = new LinkedList();
+    list.append(111).append(222).append(333).append(444);
+    expect(list.length).toBe(4);
+    expect(list.getAt(10)).toBe(null);
+  });
+
+  test('get first node by index from LinkedList with length = 1', function () {
+    const list = new LinkedList();
+    list.append(111);
+    expect(list.length).toBe(1);
+    expect(list.getAt(0).value).toBe(111);
+  });
 });
 
 

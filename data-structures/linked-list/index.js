@@ -7,8 +7,8 @@
 // clear - remove all values
 // toArray
 // fromArray
-
 // getAt(index)
+
 // removeAt(index)
 // insertAt(index, value)
 // reverse
@@ -65,6 +65,21 @@ class LinkedList {
         return currentNode;
       }
       currentNode = currentNode.next;
+    }
+
+    return null;
+  }
+
+  getAt(index) {
+    let counter = 0;
+    let currentNode = this.head;
+
+    while(currentNode) {
+      if (counter === index) {
+        return currentNode;
+      }
+      currentNode = currentNode.next;
+      counter++;
     }
 
     return null;
