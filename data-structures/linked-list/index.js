@@ -99,6 +99,41 @@ class LinkedList {
     return this;
   }
 
+  removeAt(index) {
+    if (this.head === null){
+      return null;
+    }
+
+    if (this.getSize() === 1) {
+      const currentHead = this.head;
+      this.head = null;
+      this.tail = null;
+      this.length--;
+      return currentHead;
+    }
+
+    if (index === 0){
+      const currentHead = this.head;
+      this.head = this.head.next;
+      this.length--;
+      return currentHead;
+    }
+
+    let previousNodeFromRemoved = this.getAt(index - 1);
+    let nodeForRemoving = this.getAt(index);
+
+    if (previousNodeFromRemoved && nodeForRemoving) {
+      previousNodeFromRemoved.next = nodeForRemoving.next;
+      this.length--;
+    }
+
+    if (previousNodeFromRemoved.next === null) {
+      this.tail = previousNodeFromRemoved;
+    }
+
+    return nodeForRemoving;
+  }
+
   deleteTail() {
     if (this.getSize() === 0) {
       return this;

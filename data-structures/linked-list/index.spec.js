@@ -202,6 +202,64 @@ describe('prepend', () => {
     expect(list.length).toBe(1);
     expect(list.getAt(0).value).toBe(111);
   });
+
+  test('remove element by the index from empty LinkedList', function () {
+    const list = new LinkedList();
+    expect(list.length).toBe(0);
+    expect(list.removeAt(0)).toBe(null);
+    expect(list.head).toBe(null);
+    expect(list.tail).toBe(null);
+  });
+
+  test('remove first element by the index 0 from LinkedList with length=1', function () {
+    const list = new LinkedList();
+    list.append(111);
+    expect(list.length).toBe(1);
+    expect(list.removeAt(0).value).toBe(111);
+    expect(list.length).toBe(0);
+    expect(list.head).toBe(null);
+    expect(list.tail).toBe(null);
+  });
+
+  test('remove first element from LinkedList with length=2', function () {
+    const list = new LinkedList();
+    list.append(111).append(222);
+    expect(list.length).toBe(2);
+    expect(list.removeAt(0).value).toBe(111);
+    expect(list.length).toBe(1);
+    expect(list.head.value).toBe(222);
+    expect(list.tail.value).toBe(222);
+  });
+
+  test('remove first element from LinkedList with length=3', function () {
+    const list = new LinkedList();
+    list.append(111).append(222).append(333);
+    expect(list.length).toBe(3);
+    expect(list.removeAt(0).value).toBe(111);
+    expect(list.length).toBe(2);
+    expect(list.head.value).toBe(222);
+    expect(list.tail.value).toBe(333);
+  });
+
+  test('remove second element from LinkedList with length=3', function () {
+    const list = new LinkedList();
+    list.append(111).append(222).append(333);
+    expect(list.length).toBe(3);
+    expect(list.removeAt(1).value).toBe(222);
+    expect(list.length).toBe(2);
+    expect(list.head.value).toBe(111);
+    expect(list.tail.value).toBe(333);
+  });
+
+  test('remove third element from LinkedList with length=3', function () {
+    const list = new LinkedList();
+    list.append(111).append(222).append(333);
+    expect(list.length).toBe(3);
+    expect(list.removeAt(2).value).toBe(333);
+    expect(list.length).toBe(2);
+    expect(list.head.value).toBe(111);
+    expect(list.tail.value).toBe(222);
+  });
 });
 
 
