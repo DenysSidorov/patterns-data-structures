@@ -8,6 +8,9 @@
 // toArray
 // fromArray
 
+// getAt(index)
+// removeAt(index)
+// insertAt(index, value)
 // reverse
 // removeElement - remove nodes with value
 
