@@ -1,18 +1,18 @@
-// append
-// prepend
-// deleteTail
-// deleteHead
-// findFirst
-// getSize
-// clear - remove all values
-// toArray
-// fromArray
-// getAt(index)
-// removeAt(index)
+// append(value) -> this
+// prepend(value) -> this
+// deleteTail() -> this
+// deleteHead() -> this
+// findFirst(value) -> Node | null
+// getSize() -> number
+// clear() -> this
+// toArray() -> values[]
+// fromArray(Nodes) -> Node
+// getAt(index) -> Node | null
+// removeAt(index) -> Node | null
+// insertAt(index, value) -> this
 
-// insertAt(index, value)
-// reverse
-// removeElement - remove nodes with value
+// reverse() -> this
+// removeElements(value) - this
 
 class LinkedListNode {
   constructor(value, next = null) {
@@ -32,6 +32,7 @@ class LinkedList {
     this.head = null;
     this.tail = null;
     this.length = 0;
+    return this;
   }
 
   append(value) {
@@ -254,6 +255,8 @@ class LinkedList {
     values.forEach((element) => {
       this.append(element);
     });
+
+    return this.head;
   }
 }
 
