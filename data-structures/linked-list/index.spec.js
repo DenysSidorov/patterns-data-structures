@@ -260,6 +260,68 @@ describe('prepend', () => {
     expect(list.head.value).toBe(111);
     expect(list.tail.value).toBe(222);
   });
+
+  test('insert element to empty LinkedList', function () {
+    const list = new LinkedList();
+    expect(list.length).toBe(0);
+    list.insertAt(2, 222)
+    expect(list.length).toBe(1);
+    expect(list.head.value).toBe(222);
+    expect(list.tail.value).toBe(222);
+  });
+
+  test('insert element to start of LinkedList with length=1', function () {
+    const list = new LinkedList();
+    list.append(444);
+    expect(list.length).toBe(1);
+    list.insertAt(0, 222)
+    expect(list.length).toBe(2);
+    expect(list.head.value).toBe(222);
+    expect(list.tail.value).toBe(444);
+  });
+
+  test('insert element to start of LinkedList with length=2', function () {
+    const list = new LinkedList();
+    list.append(444).append(555);
+    expect(list.length).toBe(2);
+    list.insertAt(0, 222)
+    expect(list.length).toBe(3);
+    expect(list.head.value).toBe(222);
+    expect(list.tail.value).toBe(555);
+  });
+
+  test('insert element to middle of LinkedList with length=3', function () {
+    const list = new LinkedList();
+    list.append(111).append(222).append(333);
+    expect(list.length).toBe(3);
+    list.insertAt(1, 555)
+    expect(list.length).toBe(4);
+    expect(list.getAt(1).value).toBe(555)
+    expect(list.head.value).toBe(111);
+    expect(list.tail.value).toBe(333);
+  });
+
+  test('insert element to the not existed index of LinkedList', function () {
+    const list = new LinkedList();
+    list.append(111).append(222).append(333);
+    expect(list.length).toBe(3);
+    list.insertAt(30, 555)
+    expect(list.length).toBe(4);
+    expect(list.getAt(3).value).toBe(555)
+    expect(list.head.value).toBe(111);
+    expect(list.tail.value).toBe(555);
+  });
+
+  test('insert element to the position after end of LinkedList', function () {
+    const list = new LinkedList();
+    list.append(111).append(222).append(333);
+    expect(list.length).toBe(3);
+    list.insertAt(3, 555)
+    expect(list.length).toBe(4);
+    expect(list.getAt(3).value).toBe(555)
+    expect(list.head.value).toBe(111);
+    expect(list.tail.value).toBe(555);
+  });
 });
 
 

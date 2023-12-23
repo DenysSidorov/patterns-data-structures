@@ -8,8 +8,8 @@
 // toArray
 // fromArray
 // getAt(index)
-
 // removeAt(index)
+
 // insertAt(index, value)
 // reverse
 // removeElement - remove nodes with value
@@ -134,6 +134,40 @@ class LinkedList {
     return nodeForRemoving;
   }
 
+  insertAt(index, value) {
+    const newNode = new LinkedListNode(value);
+
+    if (this.head === null) {
+      this.head = newNode;
+      this.tail = newNode;
+      this.length++;
+      return this;
+    }
+
+    if(index === 0) {
+      let currentHead = this.head;
+      newNode.next = currentHead;
+      this.head = newNode;
+      this.length++;
+      return this;
+    }
+
+    let nodeByIndex = this.getAt(index);
+    let prevNodeByIndex = this.getAt(index - 1);
+
+    if (prevNodeByIndex && nodeByIndex) {
+      prevNodeByIndex.next = newNode;
+      newNode.next = nodeByIndex;
+
+      this.length++;
+      return this;
+    }
+
+    if (!nodeByIndex) {
+      this.append(value);
+    }
+  }
+
   deleteTail() {
     if (this.getSize() === 0) {
       return this;
@@ -228,7 +262,7 @@ module.exports = {LinkedList, LinkedListNode};
 
 // const list = new LinkedList();
 // list.append(45);
-// list.prepend(55);
-// list.prepend(55);
-// list.prepend(55);
+// list.append(55);
+// list.append(66);
+// list.insertAt(3, 77);
 // console.log(list);
