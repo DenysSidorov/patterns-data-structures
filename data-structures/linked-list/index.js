@@ -258,14 +258,37 @@ class LinkedList {
 
     return this.head;
   }
+
+  reverse() {
+
+    if (!this.head || !this.head.next) {
+      return this;
+    }
+
+    let head = this.head;
+    let prevNode = null;
+    let currentNode = this.head;
+
+    while(currentNode) {
+      let next = currentNode.next;
+      let current = currentNode;
+
+      prevNode = current;
+      currentNode = next;
+
+    }
+
+    this.head = prevNode;
+    this.tail = head;
+    this.tail.next = null;
+    return prevNode;
+  }
 }
 
 module.exports = {LinkedList, LinkedListNode};
 
 
 // const list = new LinkedList();
-// list.append(45);
 // list.append(55);
-// list.append(66);
-// list.insertAt(3, 77);
+// list.reverse();
 // console.log(list);

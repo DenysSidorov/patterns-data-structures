@@ -322,6 +322,41 @@ describe('prepend', () => {
     expect(list.head.value).toBe(111);
     expect(list.tail.value).toBe(555);
   });
+
+  test('reverse LinkedList with no elements', function () {
+    const list = new LinkedList();
+    // list.append(111).append(222).append(333);
+    expect(list.length).toBe(0);
+    list.reverse()
+    expect(list.length).toBe(0);
+    expect(list.head).toBe(null);
+    expect(list.tail).toBe(null);
+  });
+
+  test('reverse LinkedList with 1 element', function () {
+    const list = new LinkedList();
+    list.append(111);
+    expect(list.length).toBe(1);
+    list.reverse()
+    expect(list.length).toBe(1);
+    expect(list.head.value).toBe(111);
+    expect(list.tail.value).toBe(111);
+  });
+
+  test('reverse LinkedList with 5 elements', function () {
+    const list = new LinkedList();
+    list
+      .append(111)
+      .append(222)
+      .append(333)
+      .append(444)
+      .append(555);
+    expect(list.length).toBe(5);
+    list.reverse()
+    expect(list.length).toBe(5);
+    expect(list.head.value).toBe(555);
+    expect(list.tail.value).toBe(111);
+  });
 });
 
 
