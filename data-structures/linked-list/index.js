@@ -10,8 +10,9 @@
 // getAt(index) -> Node | null
 // removeAt(index) -> Node | null
 // insertAt(index, value) -> this
-
 // reverse() -> this
+// removeKthNodeFromEnd(k) - Node | null
+
 // removeElements(value) - this
 
 class LinkedListNode {
@@ -283,12 +284,69 @@ class LinkedList {
     this.tail.next = null;
     return prevNode;
   }
+
+  removeKthNodeFromEnd(k) {
+    // if the list is empty
+    if (!this.head) {
+      return null;
+    }
+
+    let currentHead = this.head;
+
+    // count length
+    let length = 0;
+    while (currentHead){
+      length += 1;
+      currentHead = currentHead.next;
+    }
+
+    if (length < k) {
+      return null;
+    }
+
+    const removedIndex = length - (k - 1);
+
+    length = 1;
+    currentHead = this.head;
+    let prevHead = null;
+
+    while(currentHead) {
+      if (length === removedIndex){
+        // removed element is head
+        if (!prevHead){
+
+          if (this.head.next === null){
+            this.tail = null;
+          }
+
+          this.head = this.head.next;
+
+          this.length -= 1;
+          return this;
+        }
+
+        prevHead.next = currentHead.next;
+
+        // save the tail
+        if (currentHead.next === null) {
+          this.tail = prevHead;
+        }
+
+        this.length -= 1;
+        return this;
+      }
+
+      prevHead = currentHead;
+      currentHead = currentHead.next;
+      length += 1;
+    }
+  }
 }
 
 module.exports = {LinkedList, LinkedListNode};
 
 
 // const list = new LinkedList();
-// list.append(55);
-// list.reverse();
+// list.append(11);
+// list.removeKthNodeFromEnd(5);
 // console.log(list);

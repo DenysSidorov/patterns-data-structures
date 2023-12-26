@@ -357,6 +357,62 @@ describe('prepend', () => {
     expect(list.head.value).toBe(555);
     expect(list.tail.value).toBe(111);
   });
+
+  test('remove nth from the end with 0 elements', function () {
+    const list = new LinkedList();
+    expect(list.length).toBe(0);
+    list.removeKthNodeFromEnd(1);
+    expect(list.length).toBe(0);
+    expect(list.head).toBe(null);
+    expect(list.tail).toBe(null);
+  });
+
+  test('remove nth from the end with 1 element', function () {
+    const list = new LinkedList();
+    list.append(55);
+    expect(list.length).toBe(1);
+    list.removeKthNodeFromEnd(1);
+    expect(list.length).toBe(0);
+    expect(list.head).toBe(null);
+    expect(list.tail).toBe(null);
+  });
+
+  test('remove nth (middle) from the end with 3 element', function () {
+    const list = new LinkedList();
+    list.append(11);
+    list.append(22);
+    list.append(33);
+    expect(list.length).toBe(3);
+    list.removeKthNodeFromEnd(2);
+    expect(list.length).toBe(2);
+    expect(list.head.value).toBe(11);
+    expect(list.tail.value).toBe(33);
+  });
+
+  test('remove nth (last) from the end with 3 element', function () {
+    const list = new LinkedList();
+    list.append(11);
+    list.append(22);
+    list.append(33);
+    expect(list.length).toBe(3);
+    list.removeKthNodeFromEnd(1);
+    expect(list.length).toBe(2);
+    expect(list.head.value).toBe(11);
+    expect(list.tail.value).toBe(22);
+  });
+
+  test('remove nth (start) from the end with 3 element', function () {
+    const list = new LinkedList();
+    list.append(11);
+    list.append(22);
+    list.append(33);
+    expect(list.length).toBe(3);
+    list.removeKthNodeFromEnd(3);
+    expect(list.length).toBe(2);
+    expect(list.head.value).toBe(22);
+    expect(list.tail.value).toBe(33);
+  });
+
 });
 
 
