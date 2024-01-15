@@ -413,6 +413,123 @@ describe('prepend', () => {
     expect(list.tail.value).toBe(33);
   });
 
+  test('remove 1 element from the middle', function () {
+    const list = new LinkedList();
+    list.append(11);
+    list.append(22);
+    list.append(33);
+    expect(list.length).toBe(3);
+    list.removeElement(22);
+    expect(list.length).toBe(2);
+    expect(list.head.value).toBe(11);
+    expect(list.tail.value).toBe(33);
+  });
+
+  test('remove 1 element from the end', function () {
+    const list = new LinkedList();
+    list.append(11);
+    list.append(22);
+    list.append(33);
+    expect(list.length).toBe(3);
+    list.removeElement(33);
+    expect(list.length).toBe(2);
+    expect(list.head.value).toBe(11);
+    expect(list.tail.value).toBe(22);
+  });
+
+  test('remove 2 elements from the middle, (in order)', function () {
+    const list = new LinkedList();
+    list.append(11);
+    list.append(22);
+    list.append(22);
+    list.append(33);
+    expect(list.length).toBe(4);
+    list.removeElement(22);
+    expect(list.length).toBe(2);
+    expect(list.head.value).toBe(11);
+    expect(list.tail.value).toBe(33);
+  });
+
+  test('remove 2 elements from the middle, (not in order)', function () {
+    const list = new LinkedList();
+    list.append(11);
+    list.append(22);
+    list.append(99);
+    list.append(22);
+    list.append(33);
+    expect(list.length).toBe(5);
+    list.removeElement(22);
+    expect(list.length).toBe(3);
+    expect(list.head.value).toBe(11);
+    expect(list.tail.value).toBe(33);
+  });
+
+  test('remove 2 elements from the end', function () {
+    const list = new LinkedList();
+    list.append(11);
+    list.append(22);
+    list.append(33);
+    list.append(33);
+    expect(list.length).toBe(4);
+    list.removeElement(33);
+    expect(list.length).toBe(2);
+    expect(list.head.value).toBe(11);
+    expect(list.tail.value).toBe(22);
+  });
+
+  test('remove first 1 element', function () {
+    const list = new LinkedList();
+    list.append(11);
+    list.append(22);
+    list.append(33);
+    expect(list.length).toBe(3);
+    list.removeElement(11);
+    expect(list.length).toBe(2);
+    expect(list.head.value).toBe(22);
+    expect(list.tail.value).toBe(33);
+  });
+
+  test('remove 2 elements from the start', function () {
+    const list = new LinkedList();
+    list.append(11);
+    list.append(11);
+    list.append(22);
+    list.append(33);
+    expect(list.length).toBe(4);
+    list.removeElement(11);
+    expect(list.length).toBe(2);
+    expect(list.head.value).toBe(22);
+    expect(list.tail.value).toBe(33);
+  });
+
+  test('remove 1 element from the start and end', function () {
+    const list = new LinkedList();
+    list.append(11);
+    list.append(22);
+    list.append(33);
+    list.append(11);
+    expect(list.length).toBe(4);
+    list.removeElement(11);
+    expect(list.length).toBe(2);
+    expect(list.head.value).toBe(22);
+    expect(list.tail.value).toBe(33);
+  });
+
+  test('remove 2 elements from the start and end', function () {
+    const list = new LinkedList();
+    list.append(11);
+    list.append(11);
+    list.append(22);
+    list.append(33);
+    list.append(11);
+    list.append(11);
+    expect(list.length).toBe(6);
+    list.removeElement(11);
+    expect(list.length).toBe(2);
+    expect(list.head.value).toBe(22);
+    expect(list.tail.value).toBe(33);
+  });
+
 });
 
 

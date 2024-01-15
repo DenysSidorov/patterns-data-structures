@@ -13,7 +13,7 @@
 // reverse() -> this
 // removeKthNodeFromEnd(k) - Node | null
 
-// removeElements(value) - this
+// removeElement(value) - this
 
 class LinkedListNode {
   constructor(value, next = null) {
@@ -76,7 +76,7 @@ class LinkedList {
     let counter = 0;
     let currentNode = this.head;
 
-    while(currentNode) {
+    while (currentNode) {
       if (counter === index) {
         return currentNode;
       }
@@ -102,7 +102,7 @@ class LinkedList {
   }
 
   removeAt(index) {
-    if (this.head === null){
+    if (this.head === null) {
       return null;
     }
 
@@ -114,7 +114,7 @@ class LinkedList {
       return currentHead;
     }
 
-    if (index === 0){
+    if (index === 0) {
       const currentHead = this.head;
       this.head = this.head.next;
       this.length--;
@@ -146,7 +146,7 @@ class LinkedList {
       return this;
     }
 
-    if(index === 0) {
+    if (index === 0) {
       let currentHead = this.head;
       newNode.next = currentHead;
       this.head = newNode;
@@ -270,7 +270,7 @@ class LinkedList {
     let prevNode = null;
     let currentNode = this.head;
 
-    while(currentNode) {
+    while (currentNode) {
       let next = currentNode.next;
       let current = currentNode;
 
@@ -295,7 +295,7 @@ class LinkedList {
 
     // count length
     let length = 0;
-    while (currentHead){
+    while (currentHead) {
       length += 1;
       currentHead = currentHead.next;
     }
@@ -310,12 +310,12 @@ class LinkedList {
     currentHead = this.head;
     let prevHead = null;
 
-    while(currentHead) {
-      if (length === removedIndex){
+    while (currentHead) {
+      if (length === removedIndex) {
         // removed element is head
-        if (!prevHead){
+        if (!prevHead) {
 
-          if (this.head.next === null){
+          if (this.head.next === null) {
             this.tail = null;
           }
 
@@ -341,12 +341,36 @@ class LinkedList {
       length += 1;
     }
   }
+
+  removeElement(value) {
+
+    if (this.head === null) {
+      return this;
+    }
+
+    // [3]: null preHead 1 2 3
+    // Create new Node before the head
+    const preHeadNode = new LinkedListNode(999, this.head);
+
+    let prevHead = preHeadNode;
+    let currentHead = this.head;
+
+    while (currentHead) {
+      if (currentHead.value === value) {
+        this.length -= 1;
+        prevHead.next = currentHead.next;
+
+        if (prevHead.next === null) {
+          this.tail = prevHead;
+        }
+      } else {
+        prevHead = currentHead;
+      }
+      currentHead = currentHead.next;
+    }
+
+    this.head = preHeadNode.next;
+  }
 }
 
 module.exports = {LinkedList, LinkedListNode};
-
-
-// const list = new LinkedList();
-// list.append(11);
-// list.removeKthNodeFromEnd(5);
-// console.log(list);
