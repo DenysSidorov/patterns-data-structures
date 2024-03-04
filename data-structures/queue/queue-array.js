@@ -7,8 +7,8 @@
  * printQueue()
  * */
 
-class Queue {
-  // Array is used to implement a Queue
+class QueueArray {
+
   constructor() {
     this.items = [];
   }
@@ -43,4 +43,4 @@ class Queue {
   }
 }
 
-module.exports = Queue;
+module.exports = QueueArray;
