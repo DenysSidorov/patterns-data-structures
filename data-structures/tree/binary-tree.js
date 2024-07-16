@@ -1,13 +1,17 @@
 // add
-// remove
+// remove (not implemented)
 // find
 // traverse  (go through all tree)
 
-/* Additional
+// find height of the tree (not implemented)
+// find height of the subtree (not implemented)
+
+/* Additional (not implemented)
 add/remove subtree;
 add/remove branch;
 insert the element in certain position
 Finding the smallest common ancestor of two nodes.
+
 * */
 
 class BinaryTreeNode {
@@ -89,6 +93,7 @@ class BinaryTree {
   }
 
   // DFS (Depth-First Search)
+  // here root might be the node of the subbranch
   traverseDFS(root, callback) {
 
     callback(root);
@@ -121,35 +126,28 @@ class BinaryTree {
     }
   }
 
-  findNodeByValue(root, value){
-    if (root.value === value) {
-      return root;
-    }
-
-    if (root.left){
-      this.findNodeByValue(root.left, value);
-    }
-
-    if (root.right){
-      this.findNodeByValue(root.right, value);
-    }
+  findNodeByValue(root, value) {
+    let foundNode = null;
+    this.traverseDFS(root, (node) => {
+      if (node.value === value) {
+        foundNode = node;
+      }
+    });
+    return foundNode;
   }
 }
 
 
-new BinaryTree().traverseDFS(aNode, (node) => {
-  console.log(node.value);
-});
-
+const tree = new BinaryTree();
+tree.traverseDFS(aNode, (node) => console.log(node.value));
 console.log('-----');
 
-new BinaryTree().traverseBFS(aNode, (node) => {
-  console.log(node.value);
-});
-
+tree.traverseBFS(aNode, (node) => console.log(node.value));
 console.log('-----');
 
-console.log(new BinaryTree().findNodeByValue(aNode, 'e'));
+console.log(tree.findNodeByValue(aNode, 'e')?.value);
+console.log('-----');
+
 
 // Find node by value
 function findNode(root, value) {
@@ -159,3 +157,4 @@ function findNode(root, value) {
   if (leftResult) return leftResult;
   return findNode(root.right, value);
 }
+
