@@ -1,6 +1,10 @@
+// every node has not more than 2 children
 // no same values (in some realisations it could be)
 // node's value more than any value in left subtree
 // node's value less than any value in right subtree
+
+// https://proglib.io/p/rasprostranennye-algoritmy-i-struktury-dannyh-v-javascript-derevya-2021-10-18
+
 
 /*
 6

@@ -14,7 +14,9 @@ Finding the smallest common ancestor of two nodes.
 
 * */
 
-class BinaryTreeNode {
+
+// https://my-js.org/docs/other/js-algorithms/
+export class BinaryTreeNode {
   constructor(value) {
     this.parent = null;
     this.left = null;
@@ -42,6 +44,12 @@ class BinaryTreeNode {
     this.right = node;
     node.parent = this;
 
+  }
+
+  getHeight() {
+    const maxLeftHeight = this.left ? this.left.height + 1 : 0;
+    const maxRightHeight = this.right ? this.right.height + 1 : 0;
+    return Math.max(maxLeftHeight, maxRightHeight);
   }
 }
 
@@ -88,9 +96,7 @@ const gNode = new BinaryTreeNode('g');
 fNode.addRight(gNode);
 
 
-class BinaryTree {
-  constructor() {
-  }
+export class BinaryTree {
 
   // DFS (Depth-First Search)
   // here root might be the node of the subbranch
@@ -138,23 +144,60 @@ class BinaryTree {
 }
 
 
-const tree = new BinaryTree();
-tree.traverseDFS(aNode, (node) => console.log(node.value));
-console.log('-----');
+// const tree = new BinaryTree();
+// tree.traverseDFS(aNode, (node) => console.log(node.value));
+// console.log('-----');
+// tree.traverseBFS(aNode, (node) => console.log(node.value));
+// console.log('-----');
+// console.log(tree.findNodeByValue(aNode, 'e')?.value);
+// console.log('-----');
 
-tree.traverseBFS(aNode, (node) => console.log(node.value));
-console.log('-----');
+class BinarySearchTreeNode extends BinaryTreeNode {
+  constructor(value, comparator) {
+    super(value);
+    this.comparator = comparator;
+  }
 
-console.log(tree.findNodeByValue(aNode, 'e')?.value);
-console.log('-----');
+  insert(value) {
+    if (this.comparator(value, this.value) < 0) {
+      if (this.left) return this.left.insert(value);
+      let newNode = new BinarySearchTreeNode(value, this.comparator);
+      this.addLeft(newNode);
 
+      return newNode;
+    }
 
-// Find node by value
-function findNode(root, value) {
-  if (!root) return null;
-  if (root.value === value) return root;
-  let leftResult = findNode(root.left, value);
-  if (leftResult) return leftResult;
-  return findNode(root.right, value);
+    if (this.comparator(value, this.value) > 0) {
+      if (this.right) return this.right.insert(value);
+      let newNode = new BinarySearchTreeNode(value, this.comparator);
+      this.addRight(newNode);
+
+      return newNode;
+    }
+    return this;
+  }
 }
 
+class BinarySearchTree extends BinaryTree{
+  constructor(value, comparator) {
+    super();
+    this.root = new BinarySearchTreeNode(value, comparator);
+    this.comparator = comparator;
+  }
+
+  insert(value) {
+    this.root.insert(value);
+  }
+}
+
+const bTree = new BinarySearchTree(8, (a, b) => a - b);
+bTree.insert(3);
+bTree.insert(10);
+bTree.insert(14);
+bTree.insert(1);
+bTree.insert(6);
+bTree.insert(4);
+bTree.insert(7);
+bTree.insert(13);
+
+bTree.traverseDFS(bTree.root, (node) => console.log(node.value));

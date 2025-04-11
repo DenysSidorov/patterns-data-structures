@@ -12,7 +12,6 @@
 // insertAt(index, value) -> this
 // reverse() -> this
 // removeKthNodeFromEnd(k) - Node | null
-
 // removeElement(value) - this
 
 class LinkedListNode {
@@ -36,6 +35,7 @@ class LinkedList {
     return this;
   }
 
+  // it uses traverse, but we can add it to the tail
   append(value) {
     if (!this.head && !this.tail) {
       this._addToEmptyList(value);
@@ -137,14 +137,12 @@ class LinkedList {
   }
 
   insertAt(index, value) {
-    const newNode = new LinkedListNode(value);
-
     if (this.head === null) {
-      this.head = newNode;
-      this.tail = newNode;
-      this.length++;
+      this._addToEmptyList(value)
       return this;
     }
+
+    const newNode = new LinkedListNode(value);
 
     if (index === 0) {
       let currentHead = this.head;
