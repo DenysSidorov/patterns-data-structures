@@ -17,6 +17,8 @@
     //    - remove node with two children
 
 
+import {BinaryTree} from "./binary-tree.js";
+
 class BinaryTreeNode {
   constructor(value) {
     this.parent = null;
@@ -56,7 +58,10 @@ class BinarySearchTreeNode extends BinaryTreeNode {
 
   insert(value) {
     if (this.comparator(value, this.value) < 0) {  //  true | 3 - 8 < 0
-      if (this.left) return this.left.insert(value);
+      if (this.left) { // if we have left child just use recursion
+        this.left.insert(value);
+        return; // next work is not needed
+      }
 
       let newNode = new BinarySearchTreeNode(value, this.comparator);
       this.setLeft(newNode);
@@ -65,7 +70,10 @@ class BinarySearchTreeNode extends BinaryTreeNode {
     }
 
     if (this.comparator(value, this.value) > 0) {
-      if (this.right) return this.right.insert(value);
+      if (this.right) {
+        this.right.insert(value);
+        return;
+      }
       let newNode = new BinarySearchTreeNode(value, this.comparator);
       this.setRight(newNode);
 
@@ -89,8 +97,9 @@ class BinarySearchTreeNode extends BinaryTreeNode {
   }
 }
 
-class BinarySearchTree {
+class BinarySearchTree extends BinaryTree{
   constructor(value, comparator) {
+    super();
     this.root = new BinarySearchTreeNode(value, comparator);
     this.comparator = comparator;
   }
@@ -100,7 +109,8 @@ class BinarySearchTree {
   }
 
   find(value) {
-    return this.root.find(value);
+    return super.findNodeByValue(this.root, value);
+    // return this.root.find(value);
   }
 }
 
@@ -131,6 +141,6 @@ function traverseBF(root) {
 
 // traverseBF(tree.root)
 
-
+console.log(tree.find(14));
 // const node7 = tree.find(7);
 // console.log(node7 ? `Node with value 7 found: ${node7.value}` : 'Node 7 not found');

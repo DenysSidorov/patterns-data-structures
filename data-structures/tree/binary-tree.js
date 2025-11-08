@@ -200,4 +200,4 @@ bTree.insert(4);
 bTree.insert(7);
 bTree.insert(13);
 
-bTree.traverseDFS(bTree.root, (node) => console.log(node.value));
+// bTree.traverseDFS(bTree.root, (node) => console.log(node.value));
