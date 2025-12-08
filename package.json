@@ -6,6 +6,7 @@
   "dependencies": {
     "jest": "^24.5.0"
   },
+  "type": "module",
   "devDependencies": {},
   "scripts": {
     "test": "jest --watch --colors",
