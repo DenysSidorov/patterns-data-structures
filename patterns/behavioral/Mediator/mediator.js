@@ -1,7 +1,7 @@
 /**
  * 'Mediator' pattern allows you have mediator-class which send and register clients. Clients
  * can have opportunity send messages to all or another single client. SocketIO
- * library uses it  approach. Additionally it disables relates between classes.
+ * library uses it  approach. Additionally, it disables relates between classes.
  */
 
 /** Using 3/5*/
@@ -21,7 +21,7 @@ class TransfersAssociation {
   // send messages all or single client
   send(message, from, to) {
     if (to) {
-      to.recieve(message, from)
+      to.receive(message, from)
     } else {
       this.leagues.forEach(el => {
         if (el !== from) {

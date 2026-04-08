@@ -16,6 +16,7 @@ let reverseList = function(head) {
     while(head) {
         next = head.next; // remember next as a next node
         head.next = prev; // swap
+
         prev = head // move forward
         head = next // move forward
     }

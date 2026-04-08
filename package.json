@@ -10,7 +10,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "jest --watch --colors",
-    "test-dir": "jest --watch --colors --rootDir=data-structures/linked-list"
+    "test-dir": "jest --watch --colors --rootDir=data-structures/binary-search"
   },
   "author": "",
   "license": "ISC"
